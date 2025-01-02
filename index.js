@@ -49,14 +49,28 @@ app.post('/perguntar', (req, res) => {
 
     var titulo = req.body.titulo
     var descricao = req.body.descricao
+    var usuario = req.body.usuario
     
     // Salva no banco de dados
     Pergunta.create({
         titulo: titulo,
-        descricao: descricao
+        descricao: descricao,
+        usuario: usuario
     }).then(() => {
         res.redirect('/')
     })
+})
+
+app.get('/perguntas', (req, res) => {
+    
+        // Procura todos no banco de dados
+        Pergunta.findAll({raw: true, order: [
+            ['id', 'desc']
+        ]}).then(perguntas => {
+            res.render('perguntas', {
+                perguntas: perguntas
+            })
+        })
 })
 
 app.get('/pergunta/:id', (req, res) => {
@@ -75,7 +89,7 @@ app.get('/pergunta/:id', (req, res) => {
                 where: {perguntaId: pergunta.id},
                 order: [['id', 'desc']]
             }).then(respostas => {
-                res.render('responder', {
+                res.render('pergunta', {
                     pergunta: pergunta,
                     respostas: respostas
                 })
@@ -99,6 +113,22 @@ app.post('/responder', (req, res) => {
         res.redirect('/pergunta/' + perguntaId)
     })
 } )
+
+app.get('/usuario', (req, res) => {
+
+    // Procura todos no banco de dados
+    Pergunta.findAll({raw: true, order: [
+        ['id', 'desc']
+    ]}).then(perguntas => {
+        res.render('usuarios', {
+            perguntas: perguntas
+        })
+    })
+})
+
+app.get('/sobre', (req, res) => {
+    res.render('sobre')
+})
 
 //---------------------------------------------------------
 

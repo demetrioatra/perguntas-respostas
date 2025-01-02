@@ -1,0 +1,21 @@
+    <%- include ('partials/head.ejs') %>
+    <title>Perguntas e Respostas</title>
+    <%- include ('partials/navbar.ejs') %>
+    <%- include ('partials/sidebar.ejs') %>
+    <br>
+    <div class="container-lg">
+        <h4>Usuários</h4>
+        <div class="card-container">
+            <% perguntas.forEach(pergunta => { %>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container">
+                            <p class="descricao"><%= pergunta.usuario %></p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+    <%- include ('partials/footer.ejs') %>
+<%- include ('partials/script.ejs') %>

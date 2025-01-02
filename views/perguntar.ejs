@@ -10,17 +10,23 @@
         </div>
         <br><br>
         <form action="/perguntar" method="post">
-            <label for="">
+            <label for="titulo">
                 <b>Título</b>
                 <p class="label-subtitle">Seja específico e imagine que você está fazendo uma pergunta para outra pessoa</p>
             </label>
             <input type="text" name="titulo" placeholder="Digite o título da pergunta aqui..." class="form-control">
             <br>
-            <label for="">
+            <label for="descricao">
                 <b>Quais são os detalhes da sua pergunta?</b>
                 <p class="label-subtitle">Apresente o problema e detalhe o que você colocou no título</p>
             </label>
             <textarea name="descricao" placeholder="Descreva sua pergunta com mais detalhes aqui..." class="form-control"></textarea>
+            <br>
+            <label for="usuario">
+                <b>Usuário</b>
+                <p class="label-subtitle">Se apresente para que as pessoas que vão ver sua pergunta</p>
+            </label>
+            <input type="text" name="usuario" placeholder="Coloque seu nome aqui..." class="form-control">
             <br>
             <button class="btn btn-success">Salvar Pergunta</button>
         </form>
