@@ -1,0 +1,30 @@
+    <%- include ('partials/head.ejs') %>
+    <title>Perguntas e Respostas</title>
+    <%- include ('partials/navbar.ejs') %>
+    <br>
+    <div class="container">
+        <div class="container">
+            <h4>Faça uma pergunta</h4>
+            <p>Um espaço privado para ajudar usuários com suas dúvidas</p>
+        </div>
+        <br>
+        <form action="/perguntar" method="post">
+            <label for="">
+                <b>Título</b>
+                <p class="label-subtitle">Seja específico e imagine que você está fazendo uma pergunta para outra pessoa</p>
+            </label>
+            <input type="text" name="titulo" placeholder="Digite o título da pergunta aqui..." class="form-control">
+            <br>
+            <label for="">
+                <b>Quais são os detalhes da sua pergunta?</b>
+                <p class="label-subtitle">Apresente o problema e detalhe o que você colocou no título</p>
+            </label>
+            <textarea name="descricao" placeholder="Descreva sua pergunta com mais detalhes aqui..." class="form-control"></textarea>
+            <!--<label for="">Tags</label>
+            <input type="text" name="" id="" placeholder="Insira as tags da sua pergunta..." tabindex="0" aria-autocomplete="list" aria-haspopup="listbox" role="combobox" aria-expanded="false" class="form-control">-->
+            <br>
+            <button class="btn btn-success">Salvar Pergunta</button>
+        </form>
+    </div>
+    <%- include ('partials/footer.ejs') %>
+<%- include ('partials/script.ejs') %>

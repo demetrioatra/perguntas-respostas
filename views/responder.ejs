@@ -1,0 +1,44 @@
+    <%- include ('partials/head.ejs') %>
+    <title>Perguntas e Respostas</title>
+    <%- include ('partials/navbar.ejs') %>
+    <div class="container">
+        <br>
+        <div class="header">
+            <div class="header-text">
+                <p class="titulo"><%= pergunta.titulo %></p>
+                <p class="horario">Perguntaram <%= pergunta.createdAt %></p>
+                <p class="horario">Alteraram <%= pergunta.updatedAt %></p>
+            </div>
+            <div class="header-button">
+                <a class="btn btn-primary" href='/perguntar'>Faça uma pergunta</a>
+                <span></span>
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <%= pergunta.descricao %>
+        </div>
+        <br>      
+        <% if (respostas.length > 0) { %>            
+            <p><%- respostas.length %> Respostas</p>
+            <% respostas.forEach(resposta => { %>
+                <div class="container">
+                    <%= resposta.descricao %>
+                </div>
+                <hr>
+            <% }) %>
+        <% } else { %>
+            <p>Conhece alguém que consegue responder essa pergunta? Compartilhe o link dessa <a href="/pergunta/<%= pergunta.id %>">pergunta</a> </p>
+        <% } %>
+        <p>Sua Responta</p>
+        <form action="/responder" method="post">
+            <textarea name="descricao" class="form-control" placeholder="Descreva sua resposta aqui..."></textarea>
+            <input type="hidden" name="perguntaId" value="<%= pergunta.id %>">
+            <br>
+            <button type="submit" class="btn btn-primary">Responder</button>
+        </form>
+        <br>
+        <p>Não é a resposta que você está procurando? Procure outras questões ou <a href="/perguntar">faça sua própria pergunta</a>.</p>
+    </div>
+    <%- include ('partials/footer.ejs') %>
+<%- include ('partials/script.ejs') %>

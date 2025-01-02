@@ -1,0 +1,33 @@
+    <%- include ('partials/head.ejs') %>
+    <title>Perguntas e Respostas</title>
+    <%- include ('partials/navbar.ejs') %>
+    <br>
+    <div class="container">
+        <div class="header">
+            <div class="header-info">
+                <div class="header-img">
+                    <img src="/img/hand.png" alt="hand" height="80px" width="80px" class="hand">
+                </div>
+                <div class="header-text">
+                    <h3><b>Bem-vindo(a) de volta</b></h3>
+                    <p class="header-subtitle">Ache respostas para suas dúvidas e ajude os outros com as deles</p>
+                </div>
+            </div>
+            <div class="header-button">
+                <a class="btn btn-primary" href='/perguntar'>Faça uma pergunta</a>
+                <span></span>
+            </div>
+        </div>
+        <% perguntas.forEach(pergunta => { %>
+            <div class="card">
+                <div class="card-body">
+                    <div class="container">
+                        <a href="/pergunta/<%= pergunta.id %>"><%= pergunta.titulo %></a><br>
+                        <p class="descricao"><%= pergunta.descricao %></p>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <%- include ('partials/footer.ejs') %>
+<%- include ('partials/script.ejs') %>
