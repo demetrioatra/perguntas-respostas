@@ -1,13 +1,14 @@
     <%- include ('partials/head.ejs') %>
     <title>Perguntas e Respostas</title>
     <%- include ('partials/navbar.ejs') %>
+    <%- include ('partials/sidebar.ejs') %>
     <br>
-    <div class="container">
+    <div class="container-lg">
         <div class="container">
             <h4>Faça uma pergunta</h4>
             <p>Um espaço privado para ajudar usuários com suas dúvidas</p>
         </div>
-        <br>
+        <br><br>
         <form action="/perguntar" method="post">
             <label for="">
                 <b>Título</b>
@@ -20,11 +21,10 @@
                 <p class="label-subtitle">Apresente o problema e detalhe o que você colocou no título</p>
             </label>
             <textarea name="descricao" placeholder="Descreva sua pergunta com mais detalhes aqui..." class="form-control"></textarea>
-            <!--<label for="">Tags</label>
-            <input type="text" name="" id="" placeholder="Insira as tags da sua pergunta..." tabindex="0" aria-autocomplete="list" aria-haspopup="listbox" role="combobox" aria-expanded="false" class="form-control">-->
             <br>
             <button class="btn btn-success">Salvar Pergunta</button>
         </form>
+        <br>
     </div>
     <%- include ('partials/footer.ejs') %>
 <%- include ('partials/script.ejs') %>

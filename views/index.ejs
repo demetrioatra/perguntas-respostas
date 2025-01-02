@@ -1,8 +1,9 @@
     <%- include ('partials/head.ejs') %>
     <title>Perguntas e Respostas</title>
     <%- include ('partials/navbar.ejs') %>
+    <%- include ('partials/sidebar.ejs') %>
     <br>
-    <div class="container">
+    <div class="container-lg">
         <div class="header">
             <div class="header-info">
                 <div class="header-img">
@@ -18,16 +19,18 @@
                 <span></span>
             </div>
         </div>
-        <% perguntas.forEach(pergunta => { %>
-            <div class="card">
-                <div class="card-body">
-                    <div class="container">
-                        <a href="/pergunta/<%= pergunta.id %>"><%= pergunta.titulo %></a><br>
-                        <p class="descricao"><%= pergunta.descricao %></p>
+        <div class="card-container">
+            <% perguntas.forEach(pergunta => { %>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container">
+                            <a href="/pergunta/<%= pergunta.id %>"><%= pergunta.titulo %></a><br>
+                            <p class="descricao"><%= pergunta.descricao %></p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        <% }) %>
+            <% }) %>
+        </div>
     </div>
     <%- include ('partials/footer.ejs') %>
 <%- include ('partials/script.ejs') %>

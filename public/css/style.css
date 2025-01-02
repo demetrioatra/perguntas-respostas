@@ -68,3 +68,25 @@ a {
     align-items: center;
     justify-content: center;
 }
+
+.nav-item a {
+    color: black;
+}
+
+.col-auto {
+    position: static;
+    float: left;
+}
+
+.container-lg {
+    margin-left: 14%;
+    width: 85%;
+}
+
+.card {
+    width: 86%;
+}
+
+.card-container {
+    margin-top: 5%;
+}

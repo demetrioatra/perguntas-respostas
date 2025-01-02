@@ -30,6 +30,7 @@ app.use(bodyParser.json())
 // Rotas
 app.get('/', (req, res) => {
 
+    // Procura todos no banco de dados
     Pergunta.findAll({raw: true, order: [
         ['id', 'desc']
     ]}).then(perguntas => {
@@ -49,6 +50,7 @@ app.post('/perguntar', (req, res) => {
     var titulo = req.body.titulo
     var descricao = req.body.descricao
     
+    // Salva no banco de dados
     Pergunta.create({
         titulo: titulo,
         descricao: descricao
@@ -61,12 +63,14 @@ app.get('/pergunta/:id', (req, res) => {
 
     var id = req.params.id
 
+    // Procura um no banco de dados
     Pergunta.findOne({
         where: {id: id}
         
     }).then(pergunta => {
         if (pergunta != undefined) {
 
+            // Procura todos no banco de dados
             Resposta.findAll({
                 where: {perguntaId: pergunta.id},
                 order: [['id', 'desc']]
@@ -87,6 +91,7 @@ app.post('/responder', (req, res) => {
     var descricao = req.body.descricao
     var perguntaId = req.body.perguntaId
 
+    // Salva no banco de dados
     Resposta.create({
         descricao: descricao,
         perguntaId: perguntaId
