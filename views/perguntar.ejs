@@ -1,6 +1,6 @@
-    <%- include ('partials/head.ejs') %>
+<%- include ('partials/head.ejs') %>
     <title>Perguntas e Respostas</title>
-    <%- include ('partials/header.ejs') %>
+<%- include ('partials/header.ejs') %>
     <%- include ('partials/sidebar.ejs') %>
     <br>
     <div class="container-lg">
@@ -20,7 +20,7 @@
                 <b>Quais são os detalhes da sua pergunta?</b>
                 <p class="label-subtitle">Apresente o problema e detalhe o que você colocou no título</p>
             </label>
-            <textarea name="descricao" placeholder="Descreva sua pergunta com mais detalhes aqui..." class="form-control"></textarea>
+            <textarea name="descricao" placeholder="Descreva sua pergunta com mais detalhes aqui..." class="form-control" id="article"></textarea>
             <br>
             <label for="usuario">
                 <b>Usuário</b>
@@ -34,3 +34,8 @@
     </div>
     <%- include ('partials/footer.ejs') %>
 <%- include ('partials/script.ejs') %>
+<script>
+    tinymce.init({
+        selector: "textarea#article"
+    });
+</script>

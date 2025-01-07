@@ -5,6 +5,8 @@ const app = express()
 const bodyParser = require('body-parser')
 // Sequelize
 const connection = require('./database/database')
+// TinyMCE
+var path = require('path');
 // Tabelas
 const Pergunta = require('./database/models/Pergunta')
 const Resposta = require('./database/models/Resposta')
@@ -23,6 +25,7 @@ connection.authenticate()
 app.set('view engine', 'ejs')
 // Configurando arquivos estáticos
 app.use(express.static('public'))
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
 // Configurando Body Parser
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
