@@ -31,6 +31,11 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 // Rotas
+app.get('/404', (req, res) => {
+
+        res.render('notfound')
+})
+
 app.get('/', (req, res) => {
 
     // Procura todos no banco de dados
