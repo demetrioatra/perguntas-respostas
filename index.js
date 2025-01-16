@@ -39,10 +39,14 @@ app.get('/404', (req, res) => {
 app.get('/', (req, res) => {
 
     // Procura todos no banco de dados
-    Pergunta.findAll({raw: true, order: [
-        ['id', 'desc']
-    ]}).then(perguntas => {
+    Pergunta.findAll({
+        
+        raw: true, 
+        order: [['id', 'desc']]
+
+    }).then(perguntas => {
         res.render('index', {
+            
             perguntas: perguntas
         })
     })
@@ -61,9 +65,11 @@ app.post('/perguntar', (req, res) => {
     
     // Salva no banco de dados
     Pergunta.create({
+
         titulo: titulo,
         descricao: descricao,
         usuario: usuario
+
     }).then(() => {
         res.redirect('/')
     })
@@ -72,10 +78,14 @@ app.post('/perguntar', (req, res) => {
 app.get('/perguntas', (req, res) => {
     
         // Procura todos no banco de dados
-        Pergunta.findAll({raw: true, order: [
-            ['id', 'desc']
-        ]}).then(perguntas => {
+        Pergunta.findAll({
+
+            raw: true, 
+            order: [['id', 'desc']]
+            
+        }).then(perguntas => {
             res.render('perguntas', {
+
                 perguntas: perguntas
             })
         })
@@ -87,11 +97,12 @@ app.get('/pergunta/:id', (req, res) => {
 
     // Procura um no banco de dados
     Pergunta.findOne({
+
         where: {id: id}
         
     }).then(pergunta => {
-        if (pergunta != undefined) {
 
+        if (pergunta != undefined) {
             // Procura todos no banco de dados
             Resposta.findAll({
                 where: {perguntaId: pergunta.id},
@@ -115,8 +126,10 @@ app.post('/responder', (req, res) => {
 
     // Salva no banco de dados
     Resposta.create({
+
         descricao: descricao,
         perguntaId: perguntaId
+
     }).then(() => {
         res.redirect('/pergunta/' + perguntaId)
     })
@@ -125,16 +138,21 @@ app.post('/responder', (req, res) => {
 app.get('/usuario', (req, res) => {
 
     // Procura todos no banco de dados
-    Pergunta.findAll({raw: true, order: [
-        ['id', 'desc']
-    ]}).then(perguntas => {
+    Pergunta.findAll({
+        
+        raw: true, 
+        order: [['id', 'desc']]
+
+    }).then(perguntas => {
         res.render('usuarios', {
+
             perguntas: perguntas
         })
     })
 })
 
 app.get('/sobre', (req, res) => {
+    
     res.render('sobre')
 })
 
